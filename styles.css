@@ -32,7 +32,7 @@ li{
     color: #555;
     position: relative;
     border-bottom: 1px solid #e6e6e6;
-    height: 46px;
+    height: 60px;
 }
 
 li:nth-child(even){
@@ -62,15 +62,19 @@ li div{
     cursor:  pointer;
 }
 
+.add-cafe-form {
+    display: flex;
+    justify-content: space-between;
+}
+
 form input{
-    float: left;
-    width: 38%;
+    width: 25%;
     margin: 0;
     border: 0;
     border-bottom: 1px solid #eee;
     margin: 0 1%;
     padding: 10px;
-    display: block;
+    /* display: flex; */
     box-sizing: border-box;
     font-size: 18px;
 }

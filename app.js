@@ -3,13 +3,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase
 import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc, query, where, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBH8uZqaZblVoVTAZWEJ25WsUyTl7m1XZ8",
-    authDomain: "fir-2dd5c.firebaseapp.com",
-    projectId: "fir-2dd5c",
-    storageBucket: "fir-2dd5c.appspot.com",
-    messagingSenderId: "12997023014",
-    appId: "1:12997023014:web:110fbd54ff439cba479de7",
-    measurementId: "G-T2X38N0WEE"
+    apiKey: "AIzaSyCivPyidtXFNDOBvTsf0H2fW9NtSPPMebw",
+    authDomain: "database-d931d.firebaseapp.com",
+    projectId: "database-d931d",
+    storageBucket: "database-d931d.appspot.com",
+    messagingSenderId: "613550257035",
+    appId: "1:613550257035:web:6da9f48ded23b6237bb58e",
+    measurementId: "G-ED57X5NBJX"
 };
 
 // Initialize Firebase
@@ -25,15 +25,18 @@ function renderCafe(doc_) {
     let li = document.createElement('li');
     let name = document.createElement('span');
     let city = document.createElement('span');
+    let rating = document.createElement('span');
     let cross = document.createElement('div');
 
     li.setAttribute('data-id', doc_.id);
     name.textContent = doc_.data().name;
     city.textContent = doc_.data().city;
+    rating.textContent = doc_.data().rating;
     cross.textContent = 'x';
 
     li.appendChild(name);
     li.appendChild(city);
+    li.appendChild(rating);
     li.appendChild(cross);
 
     cafeList.appendChild(li);
@@ -72,11 +75,13 @@ form.addEventListener('submit', (e) => {
 
     addDoc(collection(db, "cafes"), {
         name: form.name.value,
-        city: form.city.value
+        city: form.city.value,
+        rating: form.rating.value
     });
 
     form.name.value = '';
     form.city.value = '';
+    form.rating.value = '';
 })
 
 
